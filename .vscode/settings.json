@@ -6,5 +6,5 @@
   "oxc.lint.run": "onSave",
   "oxc.configPath": ".oxlintrc.json",
   "oxc.tsConfigPath": "./tsconfig.json",
-  "eslint.workingDirectories": ["md3"]
+  "eslint.workingDirectories": ["md3", "storybook"]
 }

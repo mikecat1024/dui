@@ -1,0 +1,13 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "paths": {
+      "md3/*": ["../md3/*"]
+    },
+    "types": ["react", "react-dom", "node"]
+  },
+  "include": ["src", ".storybook"]
+}

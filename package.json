@@ -9,7 +9,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "check": "npx oxlint . && npx oxfmt . && npx dprint check --allow-no-files && npx tsc"
+    "check": "npx oxlint . && npx oxfmt . && npx dprint check --allow-no-files && npx tsc",
+    "storybook": "pnpm -C storybook dev"
   },
   "devDependencies": {
     "@types/node": "^25.0.9",
