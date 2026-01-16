@@ -1,0 +1,26 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "rules": {
+    "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "FunctionDeclaration:not(Program > FunctionDeclaration)",
+        "message": "Use arrow functions for non-top-level functions."
+      }
+    ],
+    "consistent-type-definitions": ["error", "interface"],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "react",
+            "importNames": ["forwardRef"],
+            "message": "React 19 no longer requires forwardRef; use ref as a prop instead."
+          }
+        ]
+      }
+    ]
+  }
+}

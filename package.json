@@ -1,0 +1,22 @@
+{
+  "name": "dui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "npx oxlint . && npx oxfmt . && npx dprint check --allow-no-files && npx tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.9",
+    "oxfmt": "^0.24.0",
+    "oxlint": "^1.39.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "pnpm@10.28.0"
+}

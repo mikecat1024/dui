@@ -1,0 +1,10 @@
+{
+  "cSpell.words": ["hexFromArgb", "argbFromHex"],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "oxc.fmt.configPath": ".oxfmtrc.json",
+  "oxc.lint.run": "onSave",
+  "oxc.configPath": ".oxlintrc.json",
+  "oxc.tsConfigPath": "./tsconfig.json",
+  "eslint.workingDirectories": ["md3"]
+}
