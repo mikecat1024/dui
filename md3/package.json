@@ -8,7 +8,10 @@
   "type": "module",
   "main": "index.js",
   "dependencies": {
-    "@base-ui/react": "^1.1.0"
+    "@base-ui/react": "^1.1.0",
+    "@material/material-color-utilities": "^0.3.0",
+    "@vanilla-extract/css": "^1.18.0",
+    "@vanilla-extract/recipes": "^0.5.7"
   },
   "devDependencies": {
     "@types/react": "^19.2.8",
