@@ -1,14 +1,15 @@
-import {
-  argbFromHex,
-  Hct,
-  hexFromArgb,
-  SchemeTonalSpot,
-} from "@material/material-color-utilities";
-import { createTheme, createThemeContract } from "@vanilla-extract/css";
+import { argbFromHex, Hct, hexFromArgb, SchemeTonalSpot } from "@material/material-color-utilities";
+import { createTheme, createThemeContract, createVar, globalStyle } from "@vanilla-extract/css";
 
 const seedColor = "#6750a4";
 const sourceHct = Hct.fromInt(argbFromHex(seedColor));
 const lightScheme = new SchemeTonalSpot(sourceHct, false, 0);
+
+export const shadowColor = createVar();
+
+globalStyle("*, *::before, *::after", {
+  boxSizing: "border-box",
+});
 
 function schemeToColors(scheme: SchemeTonalSpot) {
   return {
@@ -64,7 +65,7 @@ function schemeToColors(scheme: SchemeTonalSpot) {
   };
 }
 
-export const vars = createThemeContract({
+export const md = createThemeContract({
   sys: {
     color: {
       primary: null,
@@ -118,12 +119,15 @@ export const vars = createThemeContract({
       inversePrimary: null,
     },
     state: {
-      hover: null,
-      pressed: null,
-      focus: null,
-      dragged: null,
-      disabledContainer: null,
-      disabledContent: null,
+      hover: {
+        stateLayerOpacity: null,
+      },
+      focus: {
+        stateLayerOpacity: null,
+      },
+      pressed: {
+        stateLayerOpacity: null,
+      },
     },
     typescale: {
       label: {
@@ -152,10 +156,20 @@ export const vars = createThemeContract({
         },
       },
     },
+    motion: {
+      spring: {
+        fast: {
+          spatial: {
+            damping: null,
+            stiffness: null,
+          },
+        },
+      },
+    },
     shape: {
       corner: {
-        extraSmall: null,
-        md: null,
+        small: null,
+        medium: null,
         full: null,
       },
     },
@@ -170,65 +184,71 @@ export const vars = createThemeContract({
   },
 });
 
-const sharedThemeTokens = {
-  state: {
-    hover: "8%",
-    pressed: "12%",
-    focus: "12%",
-    dragged: "16%",
-    disabledContainer: "12%",
-    disabledContent: "38%",
-  },
-  typescale: {
-    label: {
-      large: {
-        fontFamily:
-          '"Roboto", "Noto Sans", "Helvetica Neue", Arial, sans-serif',
-        fontSize: "14px",
-        lineHeight: "20px",
-        fontWeight: "500",
-        letterSpacing: "0.1px",
-      },
-    },
-    body: {
-      large: {
-        fontFamily:
-          '"Roboto", "Noto Sans", "Helvetica Neue", Arial, sans-serif',
-        fontSize: "16px",
-        lineHeight: "24px",
-        fontWeight: "400",
-        letterSpacing: "0.5px",
-      },
-      small: {
-        fontFamily:
-          '"Roboto", "Noto Sans", "Helvetica Neue", Arial, sans-serif',
-        fontSize: "12px",
-        lineHeight: "16px",
-        fontWeight: "400",
-        letterSpacing: "0.4px",
-      },
-    },
-  },
-  shape: {
-    corner: {
-      extraSmall: "4px",
-      md: "12px",
-      full: "999px",
-    },
-  },
-  elevation: {
-    level0: "none",
-    level1: "0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15)",
-    level2: "0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15)",
-    level3: "0 1px 3px rgba(0, 0, 0, 0.3), 0 4px 8px 3px rgba(0, 0, 0, 0.15)",
-    level4: "0 2px 3px rgba(0, 0, 0, 0.3), 0 6px 10px 4px rgba(0, 0, 0, 0.15)",
-    level5: "0 4px 4px rgba(0, 0, 0, 0.3), 0 8px 12px 6px rgba(0, 0, 0, 0.15)",
-  },
-};
-
-export const lightThemeClass = createTheme(vars, {
+export const light = createTheme(md, {
   sys: {
     color: schemeToColors(lightScheme),
-    ...sharedThemeTokens,
+    state: {
+      hover: {
+        stateLayerOpacity: "0.08",
+      },
+      focus: {
+        stateLayerOpacity: "0.1",
+      },
+      pressed: {
+        stateLayerOpacity: "0.1",
+      },
+    },
+    shape: {
+      corner: {
+        small: "8px",
+        medium: "12px",
+        full: "9999px",
+      },
+    },
+    typescale: {
+      label: {
+        large: {
+          fontFamily: '"Roboto", "Noto Sans", "Helvetica Neue", Arial, sans-serif',
+          fontSize: "14px",
+          lineHeight: "20px",
+          fontWeight: "500",
+          letterSpacing: "0.1px",
+        },
+      },
+      body: {
+        large: {
+          fontFamily: '"Roboto", "Noto Sans", "Helvetica Neue", Arial, sans-serif',
+          fontSize: "16px",
+          lineHeight: "24px",
+          fontWeight: "400",
+          letterSpacing: "0.5px",
+        },
+        small: {
+          fontFamily: '"Roboto", "Noto Sans", "Helvetica Neue", Arial, sans-serif',
+          fontSize: "12px",
+          lineHeight: "16px",
+          fontWeight: "400",
+          letterSpacing: "0.4px",
+        },
+      },
+    },
+    motion: {
+      spring: {
+        fast: {
+          spatial: {
+            damping: "0.9",
+            stiffness: "1400",
+          },
+        },
+      },
+    },
+    elevation: {
+      level0: "none",
+      level1: `0 1px 2px rgb(from ${shadowColor} r g b / 0.2), 0 1px 3px 1px rgb(from ${shadowColor} r g b / 0.1)`,
+      level2: `0 1px 2px rgb(from ${shadowColor} r g b / 0.2), 0 2px 6px 2px rgb(from ${shadowColor} r g b / 0.1)`,
+      level3: `0 1px 3px rgb(from ${shadowColor} r g b / 0.2), 0 4px 8px 3px rgb(from ${shadowColor} r g b / 0.1)`,
+      level4: `0 2px 3px rgb(from ${shadowColor} r g b / 0.2), 0 6px 10px 4px rgb(from ${shadowColor} r g b / 0.1)`,
+      level5: `0 4px 4px rgb(from ${shadowColor} r g b / 0.2), 0 8px 12px 6px rgb(from ${shadowColor} r g b / 0.1)`,
+    },
   },
 });

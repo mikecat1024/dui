@@ -6,12 +6,7 @@
     "outDir": "../dist/md3",
     "module": "nodenext",
     "moduleResolution": "nodenext",
-    "types": [
-      "react",
-      "react-dom"
-    ]
+    "types": ["react", "react-dom"]
   },
-  "include": [
-    "**/*"
-  ]
+  "include": ["**/*"]
 }

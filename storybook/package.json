@@ -3,13 +3,16 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "storybook dev -p 6006",
-    "build": "storybook build --initial-path=/"
+    "dev": "storybook dev -p 6006 --initial-path=/",
+    "build": "storybook build"
   },
   "dependencies": {
+    "@vanilla-extract/vite-plugin": "^5.0.0",
     "md3": "workspace:*",
     "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "react-dom": "^19.2.3",
+    "storybook": "10.1.11",
+    "storybook-addon-pseudo-states": "^10.1.11"
   },
   "devDependencies": {
     "@storybook/react": "10.1.11",

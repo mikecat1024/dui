@@ -8,11 +8,13 @@
   "author": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "check": "npx oxlint . && npx oxfmt . && npx dprint check --allow-no-files && npx tsc",
-    "storybook": "pnpm -C storybook dev"
+    "check": "pnpm prek run -a",
+    "storybook": "pnpm -C storybook dev",
+    "test": "pnpm -C md3 test",
+    "test:update": "pnpm -C md3 test:update"
   },
   "devDependencies": {
+    "@j178/prek": "^0.2.29",
     "@types/node": "^25.0.9",
     "oxfmt": "^0.24.0",
     "oxlint": "^1.39.0",

@@ -1,0 +1,21 @@
+repos:
+  - repo: local
+    hooks:
+      - id: oxlint
+        name: oxlint
+        entry: pnpm oxlint .
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: oxfmt
+        name: oxfmt
+        entry: pnpm oxfmt .
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: tsc
+        name: tsc
+        entry: pnpm tsc
+        language: system
+        pass_filenames: false
+        always_run: true
