@@ -9,17 +9,20 @@
   "main": "index.js",
   "scripts": {
     "check": "pnpm prek run -a",
-    "storybook": "pnpm -C storybook dev",
+    "storybook": "pnpm -C storybook dev --ci",
     "test": "pnpm -C md3 test",
     "test:update": "pnpm -C md3 test:update"
   },
   "devDependencies": {
+    "@antebudimir/eslint-plugin-vanilla-extract": "^1.16.0",
     "@j178/prek": "^0.2.29",
     "@types/node": "^25.0.9",
+    "@typescript-eslint/utils": "^8.53.1",
+    "@typescript/native-preview": "7.0.0-dev.20260119.1",
     "oxfmt": "^0.24.0",
     "oxlint": "^1.39.0",
-    "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "oxlint-tsgolint": "^0.11.1",
+    "tsx": "^4.21.0"
   },
-  "packageManager": "pnpm@10.28.0"
+  "packageManager": "pnpm@10.28.1"
 }

@@ -1,7 +1,7 @@
 import { createVar, fallbackVar } from "@vanilla-extract/css";
 import { recipe, type RecipeVariants } from "@vanilla-extract/recipes";
 import { shadowColor } from "../../theme/theme.css.js";
-import { composite } from "../../utils.js";
+import { composite } from "../../utils/utils.js";
 import { button } from "./token.js";
 
 const disabled = ':is(:disabled, [aria-disabled="true"])';
@@ -52,54 +52,53 @@ const layerPressedColor = createVar();
 
 export const buttonStyle = recipe({
   base: {
+    position: "relative",
     display: "flex",
     alignItems: "center",
-    position: "relative",
-    border: "none",
-    cursor: "pointer",
 
     gap: button.small.iconLabelSpace,
-    height: button.small.container.height,
-    borderRadius: button.small.container.shape.round,
-    paddingLeft: button.small.leadingSpace,
-    paddingRight: button.small.trailingSpace,
+    border: "none",
     borderWidth: button.small.outlined.outline.width,
-    ...button.small.labelText,
-
-    backgroundColor: containerColor,
-    color: labelTextColor,
+    borderRadius: button.small.container.shape.round,
     boxShadow: containerElevation,
+    backgroundColor: containerColor,
+    cursor: "pointer",
+    paddingRight: button.small.trailingSpace,
+    paddingLeft: button.small.leadingSpace,
+    ...button.small.labelText,
+    height: button.small.container.height,
+    color: labelTextColor,
 
     selectors: {
       "&::before": {
-        opacity: 0,
-        inset: 0,
-        content: "",
         position: "absolute",
+        inset: 0,
+        opacity: 0,
         borderRadius: "inherit",
+        content: "",
       },
 
       [containerState.hovered]: {
-        boxShadow: fallbackVar(containerHoveredElevation, containerElevation),
         borderColor: fallbackVar(containerHoveredOutlinedColor, outlinedColor),
+        boxShadow: fallbackVar(containerHoveredElevation, containerElevation),
         color: fallbackVar(containerHoveredLabelTextColor, labelTextColor),
       },
       [containerState.focused]: {
-        boxShadow: fallbackVar(containerFocusedElevation, containerElevation),
         borderColor: fallbackVar(containerFocusedOutlinedColor, outlinedColor),
+        boxShadow: fallbackVar(containerFocusedElevation, containerElevation),
         color: fallbackVar(containerFocusedLabelTextColor, labelTextColor),
       },
       [containerState.pressed]: {
-        boxShadow: fallbackVar(containerPressedElevation, containerElevation),
         borderColor: fallbackVar(containerPressedOutlinedColor, outlinedColor),
+        boxShadow: fallbackVar(containerPressedElevation, containerElevation),
         color: fallbackVar(containerPressedLabelTextColor, labelTextColor),
       },
       [containerState.disabled]: {
-        boxShadow: fallbackVar(containerDisabledElevation, containerElevation),
         borderColor: fallbackVar(containerDisabledOutlinedColor, outlinedColor),
-        color: fallbackVar(containerDisabledLabelTextColor, labelTextColor),
+        boxShadow: fallbackVar(containerDisabledElevation, containerElevation),
         backgroundColor: fallbackVar(containerDisabledColor, containerColor),
         cursor: "not-allowed",
+        color: fallbackVar(containerDisabledLabelTextColor, labelTextColor),
       },
 
       [layerState.hovered]: {

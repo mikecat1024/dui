@@ -14,9 +14,9 @@ export default function EditIcon({
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height={size}
       className={className}
       viewBox="0 -960 960 960"
+      height={size}
       width={size}
     >
       <path

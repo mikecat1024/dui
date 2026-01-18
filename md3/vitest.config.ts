@@ -8,8 +8,10 @@ export default defineConfig({
     include: ["components/**/*.vrt.test.tsx"],
     testTimeout: 30000,
     hookTimeout: 30000,
+    maxConcurrency: 8,
     browser: {
       enabled: true,
+      fileParallelism: true,
       provider: playwright({
         contextOptions: {
           deviceScaleFactor: 2,

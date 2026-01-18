@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import type { ComponentProps } from "react";
 
-import Button from "md3/components/button/Button";
+import Button from "md3/components/buttons/Button";
 import EditIcon from "md3/icons/edit";
 
 type ButtonStoryArgs = ComponentProps<typeof Button> & {

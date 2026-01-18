@@ -6,19 +6,16 @@
     "dev": "storybook dev -p 6006 --initial-path=/",
     "build": "storybook build"
   },
-  "dependencies": {
+  "devDependencies": {
+    "@storybook/react": "10.1.11",
+    "@storybook/react-vite": "10.1.11",
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
     "@vanilla-extract/vite-plugin": "^5.0.0",
     "md3": "workspace:*",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "storybook": "10.1.11",
     "storybook-addon-pseudo-states": "^10.1.11"
-  },
-  "devDependencies": {
-    "@storybook/react": "10.1.11",
-    "@storybook/react-vite": "10.1.11",
-    "@types/react": "^19.2.8",
-    "@types/react-dom": "^19.2.3",
-    "storybook": "10.1.11"
   }
 }

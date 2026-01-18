@@ -2,7 +2,7 @@ import { Button as BaseButton } from "@base-ui/react/button";
 import { type ComponentPropsWithoutRef } from "react";
 
 import { light } from "../../theme/theme.css.js";
-import { mergeClasses } from "../../utils.js";
+import { mergeClasses } from "../../utils/utils.js";
 import { buttonStyle, type ButtonVariants } from "./button.css.js";
 
 type ButtonProps = ComponentPropsWithoutRef<typeof BaseButton> & ButtonVariants;

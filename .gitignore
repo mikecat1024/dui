@@ -142,3 +142,9 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
 .vitest-attachments
+
+# npm lockfile (pnpm only)
+package-lock.json
+
+# Material Design 3 specs for reference
+md3/components/**/spec.md

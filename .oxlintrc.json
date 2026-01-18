@@ -1,7 +1,16 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "jsPlugins": [
+    {
+      "name": "vanilla-extract",
+      "specifier": "@antebudimir/eslint-plugin-vanilla-extract"
+    }
+  ],
   "rules": {
+    "consistent-type-imports": "error",
+    "eqeqeq": "error",
     "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+    "no-explicit-any": "error",
     "no-restricted-syntax": [
       "error",
       {
@@ -9,6 +18,7 @@
         "message": "Use arrow functions for non-top-level functions."
       }
     ],
+    "no-unused-vars": "error",
     "consistent-type-definitions": ["error", "interface"],
     "no-restricted-imports": [
       "error",
@@ -22,5 +32,17 @@
         ]
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.css.ts"],
+      "rules": {
+        "vanilla-extract/concentric-order": "error",
+        "vanilla-extract/no-empty-style-blocks": "error",
+        "vanilla-extract/no-trailing-zero": "error",
+        "vanilla-extract/no-unknown-unit": "error",
+        "vanilla-extract/no-zero-unit": "error"
+      }
+    }
+  ]
 }

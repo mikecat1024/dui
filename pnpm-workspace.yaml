@@ -1,2 +1,4 @@
 packages:
-  - "*"
+  - "packages/eslint-plugin-vanilla-extract-order"
+  - "md3"
+  - "storybook"

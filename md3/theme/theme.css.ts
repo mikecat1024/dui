@@ -1,15 +1,11 @@
 import { argbFromHex, Hct, hexFromArgb, SchemeTonalSpot } from "@material/material-color-utilities";
-import { createTheme, createThemeContract, createVar, globalStyle } from "@vanilla-extract/css";
+import { createTheme, createThemeContract, createVar } from "@vanilla-extract/css";
 
 const seedColor = "#6750a4";
 const sourceHct = Hct.fromInt(argbFromHex(seedColor));
 const lightScheme = new SchemeTonalSpot(sourceHct, false, 0);
 
 export const shadowColor = createVar();
-
-globalStyle("*, *::before, *::after", {
-  boxSizing: "border-box",
-});
 
 function schemeToColors(scheme: SchemeTonalSpot) {
   return {
@@ -128,6 +124,9 @@ export const md = createThemeContract({
       pressed: {
         stateLayerOpacity: null,
       },
+      focusIndicator: {
+        thickness: null,
+      },
     },
     typescale: {
       label: {
@@ -168,6 +167,8 @@ export const md = createThemeContract({
     },
     shape: {
       corner: {
+        extraSmallTop: null,
+        extraSmall: null,
         small: null,
         medium: null,
         full: null,
@@ -197,9 +198,14 @@ export const light = createTheme(md, {
       pressed: {
         stateLayerOpacity: "0.1",
       },
+      focusIndicator: {
+        thickness: "2px",
+      },
     },
     shape: {
       corner: {
+        extraSmallTop: "4px 4px 0 0",
+        extraSmall: "4px",
         small: "8px",
         medium: "12px",
         full: "9999px",

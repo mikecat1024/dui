@@ -17,10 +17,14 @@ const config: StorybookConfig = {
   viteFinal: async (config) => {
     config.resolve = config.resolve ?? {};
     config.resolve.dedupe = ["react", "react-dom"];
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      md3: path.resolve(__dirname, "../../md3"),
-    };
+    const md3Alias = path.resolve(__dirname, "../../md3");
+    const alias = config.resolve.alias;
+    if (Array.isArray(alias)) {
+      config.resolve.alias = [...alias, { find: "md3", replacement: md3Alias }];
+    } else {
+      const aliasObject = alias ?? {};
+      config.resolve.alias = Object.assign({}, aliasObject, { md3: md3Alias });
+    }
     config.server = config.server ?? {};
     config.server.fs = config.server.fs ?? {};
     config.server.fs.allow = [".."];
