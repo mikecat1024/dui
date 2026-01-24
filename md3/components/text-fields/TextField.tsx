@@ -1,10 +1,18 @@
 import { Fieldset } from "@base-ui/react";
 import { Field } from "@base-ui/react/field";
-import { useRef, type MouseEvent, type ReactNode } from "react";
+import {
+  cloneElement,
+  isValidElement,
+  useRef,
+  type CSSProperties,
+  type MouseEvent,
+  type ReactElement,
+  type ReactNode,
+} from "react";
 import { type ComponentPropsWithoutRefAndChildren } from "../../utils/types.js";
 import { joinClassNames, mergeClasses } from "../../utils/utils.js";
-import * as outlinedStyles from "./outlined-text-field.css.js";
 import * as filledStyles from "./filled-text-field.css.js";
+import * as outlinedStyles from "./outlined-text-field.css.js";
 
 interface FilledTextFieldSlotProps {
   root?: ComponentPropsWithoutRefAndChildren<typeof Field.Root>;
@@ -51,6 +59,19 @@ type TextFieldVariantProps = FilledTextFieldProps | OutlinedTextFieldProps;
 
 type FilledTextFieldRenderProps = Omit<FilledTextFieldProps, "variant">;
 type OutlinedTextFieldRenderProps = Omit<OutlinedTextFieldProps, "variant">;
+
+const inheritIconColor = (icon: ReactNode) => {
+  if (!isValidElement(icon)) {
+    return icon;
+  }
+
+  // Ensure embedded IconButton inherits TextField state color when used as an icon slot.
+  // Some icon components don't declare a `style` prop; adding it via cloneElement is still safe.
+  const element = icon as ReactElement<{ style?: CSSProperties }>;
+  return cloneElement(element, {
+    style: { color: "inherit", ...element.props.style },
+  });
+};
 
 export default function TextField({ variant = "filled", ...props }: TextFieldVariantProps) {
   if (variant === "outlined") {
@@ -142,7 +163,7 @@ function FilledTextField({
             leadingIconSlotProps?.className,
           )}
         >
-          {leadingIcon}
+          {inheritIconColor(leadingIcon)}
         </span>
       ) : null}
       {trailingIcon ? (
@@ -153,7 +174,7 @@ function FilledTextField({
             trailingIconSlotProps?.className,
           )}
         >
-          {trailingIcon}
+          {inheritIconColor(trailingIcon)}
         </span>
       ) : null}
       <div
@@ -323,7 +344,7 @@ function OutlinedTextField({
                 leadingIconSlotProps?.className,
               )}
             >
-              {leadingIcon}
+              {inheritIconColor(leadingIcon)}
             </span>
           ) : null}
           {trailingIcon ? (
@@ -334,7 +355,7 @@ function OutlinedTextField({
                 trailingIconSlotProps?.className,
               )}
             >
-              {trailingIcon}
+              {inheritIconColor(trailingIcon)}
             </span>
           ) : null}
           <div

@@ -12,7 +12,7 @@ You may summarize or reference them locally in specs.md for implementation purpo
 ### Action
 
 - [x] [Buttons](https://m3.material.io/components/buttons)
-- [ ] [Icon buttons](https://m3.material.io/components/icon-buttons)
+- [x] [Icon buttons](https://m3.material.io/components/icon-buttons)
 - [ ] [Floating action buttons (FAB)](https://m3.material.io/components/floating-action-button)
 - [ ] [Extended FAB](https://m3.material.io/components/extended-fab)
 
@@ -45,7 +45,7 @@ You may summarize or reference them locally in specs.md for implementation purpo
 
 ### Text Input
 
-- [ ] [Text fields](https://m3.material.io/components/text-fields)
+- [x] [Text fields](https://m3.material.io/components/text-fields)
 
 ### Date & Time
 

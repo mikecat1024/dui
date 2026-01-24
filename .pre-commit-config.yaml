@@ -3,7 +3,7 @@ repos:
     hooks:
       - id: oxlint
         name: oxlint
-        entry: pnpm oxlint . --type-aware
+        entry: pnpm oxlint . --type-aware --fix
         language: system
         pass_filenames: false
         always_run: true

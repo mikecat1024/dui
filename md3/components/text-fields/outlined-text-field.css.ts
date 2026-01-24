@@ -335,12 +335,9 @@ export const textFieldLeadingIconStyle = recipe({
 export const textFieldTrailingIconStyle = recipe({
   base: {
     position: "absolute",
-
     top: iconCenterTop,
     right: rightPaddingWithTrailingIcon,
     transform: "translateY(-50%)",
-    width: outlinedTextField.trailingIcon.size,
-    height: outlinedTextField.trailingIcon.size,
 
     color: trailingIconColor,
 

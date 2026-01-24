@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import type { ComponentProps } from "react";
+import { useArgs } from "storybook/preview-api";
 
+import IconButton from "md3/components/icon-buttons/IconButton";
 import TextField from "md3/components/text-fields/TextField";
 import { filledTextField, outlinedTextField } from "md3/components/text-fields/token";
 import CancelIcon from "md3/icons/cancel";
@@ -10,6 +12,7 @@ type TextFieldStoryArgs = ComponentProps<typeof TextField> & {
   label: string;
   placeholder: string;
   multiline: boolean;
+  value: string;
 };
 
 const disabledArg = {
@@ -19,7 +22,10 @@ const disabledArg = {
   },
 } as const;
 
-const renderTextField = (args: TextFieldStoryArgs) => {
+const renderTextField = (
+  args: TextFieldStoryArgs,
+  updateArgs: (next: Partial<TextFieldStoryArgs>) => void,
+) => {
   const {
     label,
     leadingIcon,
@@ -27,6 +33,7 @@ const renderTextField = (args: TextFieldStoryArgs) => {
     placeholder,
     multiline,
     variant = "filled",
+    value,
     ...props
   } = args;
   const textFieldToken = variant === "outlined" ? outlinedTextField : filledTextField;
@@ -37,12 +44,23 @@ const renderTextField = (args: TextFieldStoryArgs) => {
       multiline={multiline}
       label={label}
       slotProps={{
-        control: { placeholder },
+        control: {
+          placeholder,
+          value,
+          onChange: (event) => updateArgs({ value: event.currentTarget.value }),
+        },
       }}
       leadingIcon={leadingIcon ? <SearchIcon size={textFieldToken.leadingIcon.size} /> : undefined}
-      // TODO: Make this icon IconButton
       trailingIcon={
-        trailingIcon ? <CancelIcon size={textFieldToken.trailingIcon.size} /> : undefined
+        trailingIcon ? (
+          <IconButton
+            variant="standard"
+            aria-label="Clear"
+            onClick={() => updateArgs({ value: "" })}
+          >
+            <CancelIcon size={textFieldToken.trailingIcon.size} />
+          </IconButton>
+        ) : undefined
       }
       {...props}
     />
@@ -58,6 +76,7 @@ const meta = {
     placeholder: "Placeholder",
     prefixText: "",
     suffixText: "",
+    value: "",
     disabled: false,
     invalid: false,
     leadingIcon: false,
@@ -80,11 +99,17 @@ const meta = {
     suffixText: {
       control: "text",
     },
+    value: {
+      control: "text",
+    },
     multiline: {
       control: "boolean",
     },
   },
-  render: (args: TextFieldStoryArgs) => renderTextField(args),
+  render: (args: TextFieldStoryArgs) => {
+    const [{ value }, updateArgs] = useArgs<TextFieldStoryArgs>();
+    return renderTextField({ ...args, value }, updateArgs);
+  },
 } satisfies Meta<TextFieldStoryArgs>;
 
 export default meta;

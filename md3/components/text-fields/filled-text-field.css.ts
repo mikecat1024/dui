@@ -135,8 +135,6 @@ export const textFieldTrailingIconStyle = recipe({
     top: `calc(${filledTextField.container.height} / 2)`,
     right: rightPaddingWithTrailingIcon,
     transform: "translateY(-50%)",
-    width: filledTextField.trailingIcon.size,
-    height: filledTextField.trailingIcon.size,
 
     color: trailingIconColor,
 

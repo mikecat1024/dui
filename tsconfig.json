@@ -37,6 +37,9 @@
   "references": [
     {
       "path": "./md3"
+    },
+    {
+      "path": "./storybook"
     }
   ]
 }
