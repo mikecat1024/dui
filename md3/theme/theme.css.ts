@@ -126,6 +126,7 @@ export const md = createThemeContract({
       },
       focusIndicator: {
         thickness: null,
+        outerOffset: null,
       },
     },
     typescale: {
@@ -200,6 +201,7 @@ export const light = createTheme(md, {
       },
       focusIndicator: {
         thickness: "2px",
+        outerOffset: "2px",
       },
     },
     shape: {
