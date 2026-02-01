@@ -38,8 +38,8 @@ You may summarize or reference them locally in specs.md for implementation purpo
 
 ### Selection
 
-- [ ] [Checkbox](https://m3.material.io/components/checkbox)
-- [ ] [Chips](https://m3.material.io/components/chips)
+- [x] [Checkbox](https://m3.material.io/components/checkbox)
+- [x] [Chips](https://m3.material.io/components/chips)
 - [ ] [Radio button](https://m3.material.io/components/radio-button)
 - [ ] [Switch](https://m3.material.io/components/switch)
 

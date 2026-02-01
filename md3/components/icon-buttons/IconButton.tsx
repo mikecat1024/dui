@@ -17,7 +17,7 @@ export default function IconButton({
   const mergedClassName = mergeClasses([iconButtonClassName, className]);
 
   return (
-    <BaseButton className={mergedClassName} disabled={disabled} {...props}>
+    <BaseButton className={mergedClassName} disabled={disabled} {...props} data-slot="root">
       {children}
     </BaseButton>
   );

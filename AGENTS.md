@@ -18,6 +18,7 @@
 - Map every visual token used in code to an existing `specs.md` token (no extras).
 - Keep sizing, spacing, elevation, and typography aligned to the M3 spec values in `specs.md`.
 - Avoid ad-hoc styling; prefer tokens and spec-driven values.
+- For chips, selected/unselected state handling can be deferred unless explicitly requested.
 
 ## Naming and Tokens
 

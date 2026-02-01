@@ -149,7 +149,7 @@ function FilledTextField({
   };
 
   return (
-    <Field.Root {...props} {...rootSlotProps} className={mergedRootClassName}>
+    <Field.Root {...props} {...rootSlotProps} className={mergedRootClassName} data-slot="root">
       {label ? (
         <Field.Label {...labelSlotProps} className={mergedLabelClassName}>
           {label}
@@ -299,7 +299,7 @@ function OutlinedTextField({
   };
 
   return (
-    <Field.Root {...props} {...rootSlotProps} className={mergedRootClassName}>
+    <Field.Root {...props} {...rootSlotProps} className={mergedRootClassName} data-slot="root">
       <div
         {...outlineWrapperSlotProps}
         className={joinClassNames(

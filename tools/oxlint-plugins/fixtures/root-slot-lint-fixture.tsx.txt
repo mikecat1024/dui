@@ -1,0 +1,24 @@
+export function RootSlotLintFixture() {
+  return (
+    <>
+      {/* data-slot=root: banned properties + banned values */}
+      <div
+        data-slot="root"
+        style={{
+          marginTop: 8,
+          position: "absolute",
+          display: "flex",
+          overflow: "hidden",
+          width: "100%",
+          zIndex: 10,
+        }}
+      />
+
+      {/* data-slow=root: must be inline-* */}
+      <div data-slow="root" style={{ display: "block" }} />
+
+      {/* data-slow=root: display missing */}
+      <div data-slow="root" style={{}} />
+    </>
+  );
+}

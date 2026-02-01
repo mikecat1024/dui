@@ -124,6 +124,9 @@ export const md = createThemeContract({
       pressed: {
         stateLayerOpacity: null,
       },
+      dragged: {
+        stateLayerOpacity: null,
+      },
       focusIndicator: {
         thickness: null,
         outerOffset: null,
@@ -198,6 +201,9 @@ export const light = createTheme(md, {
       },
       pressed: {
         stateLayerOpacity: "0.1",
+      },
+      dragged: {
+        stateLayerOpacity: "0.16",
       },
       focusIndicator: {
         thickness: "2px",

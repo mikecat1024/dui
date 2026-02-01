@@ -13,7 +13,7 @@ export default function Button({ children, className, disabled, variant, ...prop
   const mergedClassName = mergeClasses([buttonClassName, className, light]);
 
   return (
-    <BaseButton className={mergedClassName} disabled={disabled} {...props}>
+    <BaseButton className={mergedClassName} disabled={disabled} {...props} data-slot="root">
       {children}
     </BaseButton>
   );

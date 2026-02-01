@@ -21,12 +21,18 @@ const iconColor = createVar();
 const stateLayerColor = createVar();
 const stateLayerOpacity = createVar();
 
+export const checkboxWrapperStyle = style({
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: "4px",
+});
+
 export const checkboxRootStyle = style({
   position: "relative",
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-  margin: "4px",
   outline: "none",
   border: "none",
   backgroundColor: "transparent",
