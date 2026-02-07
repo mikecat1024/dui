@@ -7,13 +7,13 @@ import { buttonStyle, type ButtonVariants } from "./button.css.js";
 
 type ButtonProps = ComponentPropsWithoutRef<typeof BaseButton> & ButtonVariants;
 
-export default function Button({ children, className, disabled, variant, ...props }: ButtonProps) {
+export default function Button({ children, className, variant, ...props }: ButtonProps) {
   const buttonClassName = buttonStyle({ variant });
   // Theme class must be on the same element as buttonStyle for shadowColor.
   const mergedClassName = mergeClasses([buttonClassName, className, light]);
 
   return (
-    <BaseButton className={mergedClassName} disabled={disabled} {...props} data-slot="root">
+    <BaseButton className={mergedClassName} {...props} data-slot="root">
       {children}
     </BaseButton>
   );

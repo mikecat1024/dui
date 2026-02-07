@@ -75,6 +75,7 @@ export const buttonStyle = recipe({
         inset: 0,
         opacity: 0,
         borderRadius: "inherit",
+        pointerEvents: "none",
         content: "",
       },
 

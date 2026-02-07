@@ -1,17 +1,16 @@
 import { Button as BaseButton } from "@base-ui/react/button";
 import { type ComponentPropsWithoutRef, type ReactNode } from "react";
 
+import { light } from "../../theme/theme.css.js";
 import { mergeClasses } from "../../utils/utils.js";
 import {
-  assistChipElevatedStyle,
-  assistChipFlatStyle,
+  assistChipStyle,
   chipLeadingIconStyle,
   chipTrailingIconStyle,
-  filterChipElevatedStyle,
-  filterChipFlatStyle,
+  filterChipStyle,
   inputChipStyle,
-  suggestionChipElevatedStyle,
-  suggestionChipFlatStyle,
+  inputChipTrailingIconStyle,
+  suggestionChipStyle,
 } from "./chip.css.js";
 
 export type ChipVariant = "assist" | "filter" | "input" | "suggestion";
@@ -76,8 +75,8 @@ function AssistChip({
   children,
   ...props
 }: Omit<AssistChipProps, "variant">) {
-  const chipClassName = elevated ? assistChipElevatedStyle : assistChipFlatStyle;
-  const mergedClassName = mergeClasses([chipClassName, className]);
+  const chipClassName = assistChipStyle({ variant: elevated ? "elevated" : "flat" });
+  const mergedClassName = mergeClasses([chipClassName, className, light]);
 
   return (
     <BaseButton
@@ -101,8 +100,8 @@ function FilterChip({
   children,
   ...props
 }: Omit<FilterChipProps, "variant">) {
-  const chipClassName = elevated ? filterChipElevatedStyle : filterChipFlatStyle;
-  const mergedClassName = mergeClasses([chipClassName, className]);
+  const chipClassName = filterChipStyle({ variant: elevated ? "elevated" : "flat" });
+  const mergedClassName = mergeClasses([chipClassName, className, light]);
 
   return (
     <BaseButton
@@ -127,7 +126,7 @@ function InputChip({
   children,
   ...props
 }: Omit<InputChipProps, "variant" | "elevated">) {
-  const mergedClassName = mergeClasses([inputChipStyle, className]);
+  const mergedClassName = mergeClasses([inputChipStyle, className, light]);
 
   return (
     <BaseButton
@@ -135,11 +134,13 @@ function InputChip({
       data-leading-icon={leadingIcon ? "true" : undefined}
       data-trailing-icon
       data-dragged={dragged ? "true" : undefined}
+      render={<span />}
+      data-slot="root"
       {...props}
     >
       {leadingIcon ? <span className={chipLeadingIconStyle}>{leadingIcon}</span> : null}
       {children}
-      <span className={chipTrailingIconStyle}>{trailingIcon}</span>
+      <BaseButton className={inputChipTrailingIconStyle}>{trailingIcon}</BaseButton>
     </BaseButton>
   );
 }
@@ -152,8 +153,8 @@ function SuggestionChip({
   children,
   ...props
 }: Omit<SuggestionChipProps, "variant">) {
-  const chipClassName = elevated ? suggestionChipElevatedStyle : suggestionChipFlatStyle;
-  const mergedClassName = mergeClasses([chipClassName, className]);
+  const chipClassName = suggestionChipStyle({ variant: elevated ? "elevated" : "flat" });
+  const mergedClassName = mergeClasses([chipClassName, className, light]);
 
   return (
     <BaseButton
