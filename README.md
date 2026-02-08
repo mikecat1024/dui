@@ -1,5 +1,7 @@
 This is a lightweight UI library that wraps the minimal necessary base-ui for React with Material Design 3 support.
 
+Storybook: https://mikecat1024.github.io/dui/
+
 If you need design specifications, refer to the official
 Material Design 3 specs:
 
@@ -19,7 +21,7 @@ You may summarize or reference them locally in specs.md for implementation purpo
 ### Communication & Feedback
 
 - [ ] [Badges](https://m3.material.io/components/badges)
-- [ ] [Dialogs](https://m3.material.io/components/dialogs)
+- [x] [Dialogs](https://m3.material.io/components/dialogs)
 - [ ] [Snackbar](https://m3.material.io/components/snackbar)
 - [ ] [Tooltips](https://m3.material.io/components/tooltips)
 
