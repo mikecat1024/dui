@@ -30,6 +30,7 @@ const config: StorybookConfig = {
     config.server.fs.allow = [".."];
     config.plugins = config.plugins ?? [];
     config.plugins.unshift(vanillaExtractPlugin());
+    config.base = process.env.STORYBOOK_BASE_PATH ?? "/";
     return config;
   },
 };
