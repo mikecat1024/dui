@@ -1,5 +1,18 @@
 import type { Preview } from "@storybook/react";
+import type { ReactNode } from "react";
+import { useEffect } from "react";
 import { light } from "md3/theme/theme.css.js";
+
+function StoryThemeWrapper({ children }: { children: ReactNode }) {
+  useEffect(() => {
+    document.body.classList.add(light);
+    return () => {
+      document.body.classList.remove(light);
+    };
+  }, []);
+
+  return <div className={light}>{children}</div>;
+}
 
 const preview: Preview = {
   parameters: {
@@ -12,9 +25,9 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <div className={light}>
+      <StoryThemeWrapper>
         <Story />
-      </div>
+      </StoryThemeWrapper>
     ),
   ],
 };

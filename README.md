@@ -62,4 +62,4 @@ You may summarize or reference them locally in specs.md for implementation purpo
 - [ ] [App bars (Top app bar)](https://m3.material.io/components/top-app-bar)
 - [ ] [Bottom sheets](https://m3.material.io/components/bottom-sheets)
 - [ ] [Side sheets](https://m3.material.io/components/side-sheets)
-- [ ] [Divider](https://m3.material.io/components/divider)
+- [x] [Divider](https://m3.material.io/components/divider)

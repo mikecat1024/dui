@@ -1,21 +1,24 @@
 repos:
   - repo: local
     hooks:
-      - id: oxlint
-        name: oxlint
-        entry: pnpm oxlint . --type-aware --fix
-        language: system
-        pass_filenames: false
-        always_run: true
       - id: oxfmt
         name: oxfmt
         entry: pnpm oxfmt .
         language: system
         pass_filenames: false
         always_run: true
+        priority: 0
+      - id: oxlint
+        name: oxlint
+        entry: pnpm oxlint . --type-aware --fix
+        language: system
+        pass_filenames: false
+        always_run: true
+        priority: 10
       - id: tsgo
         name: tsgo
         entry: pnpm tsgo -b --noEmit
         language: system
         pass_filenames: false
         always_run: true
+        priority: 10

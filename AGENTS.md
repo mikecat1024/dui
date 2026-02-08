@@ -26,6 +26,7 @@
 - Do not alias or rename tokens beyond what appears in `specs.md`.
 - If a required token is missing, update `specs.md` first using the official M3 naming.
 - Avoid introducing alias variables solely to shorten nested token access (keep direct references).
+- Define `attributes` in `*.css.ts` and use them there; do not add `attributes` blocks to `token.ts`.
 
 ## Verification
 

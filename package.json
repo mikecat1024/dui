@@ -10,7 +10,7 @@
   "scripts": {
     "check": "pnpm prek run -a",
     "format": "pnpm oxfmt **/*",
-    "storybook": "pnpm -C storybook dev --ci",
+    "storybook": "pnpm -C storybook dev",
     "test": "pnpm -C md3 test",
     "test:update": "pnpm -C md3 test:update"
   },
