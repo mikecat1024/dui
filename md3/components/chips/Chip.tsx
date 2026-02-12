@@ -1,7 +1,6 @@
 import { Button as BaseButton } from "@base-ui/react/button";
 import { type ComponentPropsWithoutRef, type ReactNode } from "react";
 
-import { light } from "../../theme/theme.css.js";
 import { mergeClasses } from "../../utils/utils.js";
 import {
   assistChipStyle,
@@ -76,7 +75,7 @@ function AssistChip({
   ...props
 }: Omit<AssistChipProps, "variant">) {
   const chipClassName = assistChipStyle({ variant: elevated ? "elevated" : "flat" });
-  const mergedClassName = mergeClasses([chipClassName, className, light]);
+  const mergedClassName = mergeClasses([chipClassName, className]);
 
   return (
     <BaseButton
@@ -101,7 +100,7 @@ function FilterChip({
   ...props
 }: Omit<FilterChipProps, "variant">) {
   const chipClassName = filterChipStyle({ variant: elevated ? "elevated" : "flat" });
-  const mergedClassName = mergeClasses([chipClassName, className, light]);
+  const mergedClassName = mergeClasses([chipClassName, className]);
 
   return (
     <BaseButton
@@ -126,7 +125,7 @@ function InputChip({
   children,
   ...props
 }: Omit<InputChipProps, "variant" | "elevated">) {
-  const mergedClassName = mergeClasses([inputChipStyle, className, light]);
+  const mergedClassName = mergeClasses([inputChipStyle, className]);
 
   return (
     <BaseButton
@@ -154,7 +153,7 @@ function SuggestionChip({
   ...props
 }: Omit<SuggestionChipProps, "variant">) {
   const chipClassName = suggestionChipStyle({ variant: elevated ? "elevated" : "flat" });
-  const mergedClassName = mergeClasses([chipClassName, className, light]);
+  const mergedClassName = mergeClasses([chipClassName, className]);
 
   return (
     <BaseButton

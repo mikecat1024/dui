@@ -43,7 +43,7 @@ You may summarize or reference them locally in specs.md for implementation purpo
 - [x] [Checkbox](https://m3.material.io/components/checkbox)
 - [x] [Chips](https://m3.material.io/components/chips)
 - [ ] [Radio button](https://m3.material.io/components/radio-button)
-- [ ] [Switch](https://m3.material.io/components/switch)
+- [x] [Switch](https://m3.material.io/components/switch)
 
 ### Text Input
 

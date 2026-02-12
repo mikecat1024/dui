@@ -1,9 +1,12 @@
 import { argbFromHex, Hct, hexFromArgb, SchemeTonalSpot } from "@material/material-color-utilities";
-import { createTheme, createThemeContract, createVar } from "@vanilla-extract/css";
+import {
+  createTheme as createVanillaTheme,
+  createThemeContract,
+  createVar,
+} from "@vanilla-extract/css";
 
-const seedColor = "#6750a4";
-const sourceHct = Hct.fromInt(argbFromHex(seedColor));
-const lightScheme = new SchemeTonalSpot(sourceHct, false, 0);
+const defaultSeedColor = "#6750a4";
+const defaultContrastLevel = 0;
 
 export const shadowColor = createVar();
 
@@ -59,6 +62,21 @@ function schemeToColors(scheme: SchemeTonalSpot) {
     inverseOnSurface: hexFromArgb(scheme.inverseOnSurface),
     inversePrimary: hexFromArgb(scheme.inversePrimary),
   };
+}
+
+type ThemeColorTokens = ReturnType<typeof schemeToColors>;
+type ThemeMode = "light" | "dark";
+
+interface CreateThemeOptions {
+  seedColor?: string;
+  mode?: ThemeMode;
+  contrastLevel?: number;
+  colorOverrides?: Partial<ThemeColorTokens>;
+}
+
+function getScheme(seedColor: string, mode: ThemeMode, contrastLevel: number) {
+  const sourceHct = Hct.fromInt(argbFromHex(seedColor));
+  return new SchemeTonalSpot(sourceHct, mode === "dark", contrastLevel);
 }
 
 export const md = createThemeContract({
@@ -189,80 +207,91 @@ export const md = createThemeContract({
   },
 });
 
-export const light = createTheme(md, {
-  sys: {
-    color: schemeToColors(lightScheme),
-    state: {
-      hover: {
-        stateLayerOpacity: "0.08",
-      },
-      focus: {
-        stateLayerOpacity: "0.1",
-      },
-      pressed: {
-        stateLayerOpacity: "0.1",
-      },
-      dragged: {
-        stateLayerOpacity: "0.16",
-      },
-      focusIndicator: {
-        thickness: "2px",
-        outerOffset: "2px",
-      },
-    },
-    shape: {
-      corner: {
-        extraSmallTop: "4px 4px 0 0",
-        extraSmall: "4px",
-        small: "8px",
-        medium: "12px",
-        full: "9999px",
-      },
-    },
-    typescale: {
-      label: {
-        large: {
-          fontFamily: '"Roboto", "Noto Sans", "Helvetica Neue", Arial, sans-serif',
-          fontSize: "14px",
-          lineHeight: "20px",
-          fontWeight: "500",
-          letterSpacing: "0.1px",
+function themeValues({
+  seedColor = defaultSeedColor,
+  mode = "light",
+  contrastLevel = defaultContrastLevel,
+  colorOverrides = {},
+}: CreateThemeOptions = {}) {
+  const scheme = getScheme(seedColor, mode, contrastLevel);
+  return {
+    sys: {
+      color: { ...schemeToColors(scheme), ...colorOverrides },
+      state: {
+        hover: {
+          stateLayerOpacity: "0.08",
+        },
+        focus: {
+          stateLayerOpacity: "0.1",
+        },
+        pressed: {
+          stateLayerOpacity: "0.1",
+        },
+        dragged: {
+          stateLayerOpacity: "0.16",
+        },
+        focusIndicator: {
+          thickness: "2px",
+          outerOffset: "2px",
         },
       },
-      body: {
-        large: {
-          fontFamily: '"Roboto", "Noto Sans", "Helvetica Neue", Arial, sans-serif',
-          fontSize: "16px",
-          lineHeight: "24px",
-          fontWeight: "400",
-          letterSpacing: "0.5px",
-        },
-        small: {
-          fontFamily: '"Roboto", "Noto Sans", "Helvetica Neue", Arial, sans-serif',
-          fontSize: "12px",
-          lineHeight: "16px",
-          fontWeight: "400",
-          letterSpacing: "0.4px",
+      shape: {
+        corner: {
+          extraSmallTop: "4px 4px 0 0",
+          extraSmall: "4px",
+          small: "8px",
+          medium: "12px",
+          full: "9999px",
         },
       },
-    },
-    motion: {
-      spring: {
-        fast: {
-          spatial: {
-            damping: "0.9",
-            stiffness: "1400",
+      typescale: {
+        label: {
+          large: {
+            fontFamily: '"Roboto", "Noto Sans", "Helvetica Neue", Arial, sans-serif',
+            fontSize: "14px",
+            lineHeight: "20px",
+            fontWeight: "500",
+            letterSpacing: "0.1px",
+          },
+        },
+        body: {
+          large: {
+            fontFamily: '"Roboto", "Noto Sans", "Helvetica Neue", Arial, sans-serif',
+            fontSize: "16px",
+            lineHeight: "24px",
+            fontWeight: "400",
+            letterSpacing: "0.5px",
+          },
+          small: {
+            fontFamily: '"Roboto", "Noto Sans", "Helvetica Neue", Arial, sans-serif',
+            fontSize: "12px",
+            lineHeight: "16px",
+            fontWeight: "400",
+            letterSpacing: "0.4px",
           },
         },
       },
+      motion: {
+        spring: {
+          fast: {
+            spatial: {
+              damping: "0.9",
+              stiffness: "1400",
+            },
+          },
+        },
+      },
+      elevation: {
+        level0: "none",
+        level1: `0 1px 2px rgb(from ${shadowColor} r g b / 0.2), 0 1px 3px 1px rgb(from ${shadowColor} r g b / 0.1)`,
+        level2: `0 1px 2px rgb(from ${shadowColor} r g b / 0.2), 0 2px 6px 2px rgb(from ${shadowColor} r g b / 0.1)`,
+        level3: `0 1px 3px rgb(from ${shadowColor} r g b / 0.2), 0 4px 8px 3px rgb(from ${shadowColor} r g b / 0.1)`,
+        level4: `0 2px 3px rgb(from ${shadowColor} r g b / 0.2), 0 6px 10px 4px rgb(from ${shadowColor} r g b / 0.1)`,
+        level5: `0 4px 4px rgb(from ${shadowColor} r g b / 0.2), 0 8px 12px 6px rgb(from ${shadowColor} r g b / 0.1)`,
+      },
     },
-    elevation: {
-      level0: "none",
-      level1: `0 1px 2px rgb(from ${shadowColor} r g b / 0.2), 0 1px 3px 1px rgb(from ${shadowColor} r g b / 0.1)`,
-      level2: `0 1px 2px rgb(from ${shadowColor} r g b / 0.2), 0 2px 6px 2px rgb(from ${shadowColor} r g b / 0.1)`,
-      level3: `0 1px 3px rgb(from ${shadowColor} r g b / 0.2), 0 4px 8px 3px rgb(from ${shadowColor} r g b / 0.1)`,
-      level4: `0 2px 3px rgb(from ${shadowColor} r g b / 0.2), 0 6px 10px 4px rgb(from ${shadowColor} r g b / 0.1)`,
-      level5: `0 4px 4px rgb(from ${shadowColor} r g b / 0.2), 0 8px 12px 6px rgb(from ${shadowColor} r g b / 0.1)`,
-    },
-  },
-});
+  };
+}
+
+export const light = createVanillaTheme(md, themeValues({ mode: "light" }));
+export const dark = createVanillaTheme(md, themeValues({ mode: "dark" }));
