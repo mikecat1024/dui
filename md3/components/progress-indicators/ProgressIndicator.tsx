@@ -13,7 +13,7 @@ import {
   progressIndicatorStyle,
   type ProgressIndicatorVariants,
 } from "./progress-indicator.css.js";
-import { progressIndicator } from "./token.js";
+import { progressIndicator } from "../../theme/token.js";
 
 type ProgressIndicatorProps = ComponentPropsWithoutRef<"div"> &
   ProgressIndicatorVariants & {

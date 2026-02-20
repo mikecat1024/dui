@@ -1,7 +1,7 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { recipe, type RecipeVariants } from "@vanilla-extract/recipes";
 import { withOpacity } from "../../utils/utils.js";
-import { progressIndicator } from "./token.js";
+import { progressIndicator } from "../../theme/token.js";
 
 const attributes = {
   trackOpacity: "0.3",

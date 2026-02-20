@@ -1,6 +1,6 @@
 import { createVar, globalStyle, style } from "@vanilla-extract/css";
 import { composite } from "../../utils/utils.js";
-import { checkbox } from "./token.js";
+import { checkbox } from "../../theme/token.js";
 
 const disabled = "[data-disabled]";
 const enabled = `:not(${disabled})`;

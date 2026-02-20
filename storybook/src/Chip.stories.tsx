@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import type { ComponentProps } from "react";
 
 import Chip from "md3/components/chips/Chip";
-import { chip } from "md3/components/chips/token";
+import { chip } from "md3/theme/token";
 import CancelIcon from "md3/icons/cancel";
 import EditIcon from "md3/icons/edit";
 

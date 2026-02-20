@@ -1,7 +1,7 @@
 import { createVar, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { withOpacity } from "../../utils/utils.js";
-import { outlinedTextField } from "./token.js";
+import { outlinedTextField } from "../../theme/token.js";
 
 // attributes
 const defaultWidth = "320px";

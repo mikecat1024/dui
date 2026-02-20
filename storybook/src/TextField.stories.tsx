@@ -4,7 +4,7 @@ import { useArgs } from "storybook/preview-api";
 
 import IconButton from "md3/components/icon-buttons/IconButton";
 import TextField from "md3/components/text-fields/TextField";
-import { filledTextField, outlinedTextField } from "md3/components/text-fields/token";
+import { filledTextField, outlinedTextField } from "md3/theme/token";
 import CancelIcon from "md3/icons/cancel";
 import SearchIcon from "md3/icons/search";
 

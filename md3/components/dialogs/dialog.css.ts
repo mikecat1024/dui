@@ -1,6 +1,6 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 import { md, shadowColor } from "../../theme/theme.css.js";
-import { dialog } from "./token.js";
+import { dialog } from "../../theme/token.js";
 
 const attributes = {
   container: {

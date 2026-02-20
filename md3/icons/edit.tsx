@@ -1,4 +1,4 @@
-import { button } from "../components/buttons/token.js";
+import { button } from "../theme/token.js";
 
 interface IconProps {
   size?: string;

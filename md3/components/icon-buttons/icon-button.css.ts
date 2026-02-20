@@ -1,7 +1,7 @@
 import { createVar, fallbackVar, globalStyle, style } from "@vanilla-extract/css";
 import { recipe, type RecipeVariants } from "@vanilla-extract/recipes";
 import { composite } from "../../utils/utils.js";
-import { iconButton } from "./token.js";
+import { iconButton } from "../../theme/token.js";
 
 const disabled = ':is(:disabled, [aria-disabled="true"])';
 const enabled = `:not(${disabled})`;

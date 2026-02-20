@@ -29,7 +29,7 @@ You may summarize or reference them locally in specs.md for implementation purpo
 
 - [ ] [Cards](https://m3.material.io/components/cards)
 - [ ] [Carousel](https://m3.material.io/components/carousel)
-- [ ] [Lists](https://m3.material.io/components/lists)
+- [x] [Lists](https://m3.material.io/components/lists)
 
 ### Navigation
 

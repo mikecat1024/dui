@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Dialog from "md3/components/dialogs/Dialog";
-import { dialog } from "md3/components/dialogs/token";
+import { dialog } from "md3/theme/token";
 import EditIcon from "md3/icons/edit";
 
 interface DialogStoryArgs {

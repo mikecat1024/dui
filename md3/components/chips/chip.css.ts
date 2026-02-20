@@ -2,8 +2,8 @@ import { createVar, globalStyle, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { shadowColor } from "../../theme/theme.css.js";
 import { withOpacity } from "../../utils/utils.js";
-import { iconButton } from "../icon-buttons/token.js";
-import { chip } from "./token.js";
+import { iconButton } from "../../theme/token.js";
+import { chip } from "../../theme/token.js";
 
 const disabled = ':is(:disabled, [aria-disabled="true"], [data-disabled])';
 const enabled = `:not(${disabled})`;

@@ -1,5 +1,5 @@
 import { recipe, type RecipeVariants } from "@vanilla-extract/recipes";
-import { divider } from "./token.js";
+import { divider } from "../../theme/token.js";
 
 const attributes = {
   dividerFullWidth: "100%",

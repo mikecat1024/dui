@@ -2,7 +2,7 @@ import { createVar, fallbackVar } from "@vanilla-extract/css";
 import { recipe, type RecipeVariants } from "@vanilla-extract/recipes";
 import { shadowColor } from "../../theme/theme.css.js";
 import { composite } from "../../utils/utils.js";
-import { button } from "./token.js";
+import { button } from "../../theme/token.js";
 
 const disabled = ':is(:disabled, [aria-disabled="true"])';
 const enabled = `:not(${disabled})`;

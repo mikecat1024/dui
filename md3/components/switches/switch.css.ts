@@ -1,7 +1,7 @@
 import { createVar, globalStyle, style } from "@vanilla-extract/css";
 import { shadowColor } from "../../theme/theme.css.js";
 import { composite } from "../../utils/utils.js";
-import { switchToken } from "./token.js";
+import { switchToken } from "../../theme/token.js";
 
 const disabled = "[data-disabled]";
 const enabled = `:not(${disabled})`;

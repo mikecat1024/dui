@@ -1,7 +1,7 @@
 import { createVar, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { withOpacity } from "../../utils/utils.js";
-import { filledTextField } from "./token.js";
+import { filledTextField } from "../../theme/token.js";
 
 // attributes
 const defaultWidth = "320px";

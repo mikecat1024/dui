@@ -11,6 +11,7 @@
 - Ignore the MD3 Expressive updates; follow the original M3 spec naming and sizing.
 - Do not introduce or use variables/tokens that are not defined in `specs.md`.
 - Use camelCase for variable and token keys (no hyphens).
+- Use the composition pattern as much as possible.
 
 ## Implementation Checklist
 
