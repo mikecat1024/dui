@@ -159,6 +159,13 @@ export const md = createThemeContract({
           fontWeight: null,
           letterSpacing: null,
         },
+        small: {
+          fontFamily: null,
+          fontSize: null,
+          lineHeight: null,
+          fontWeight: null,
+          letterSpacing: null,
+        },
       },
       body: {
         large: {
@@ -252,6 +259,13 @@ function themeValues({
             lineHeight: "20px",
             fontWeight: "500",
             letterSpacing: "0.1px",
+          },
+          small: {
+            fontFamily: '"Roboto", "Noto Sans", "Helvetica Neue", Arial, sans-serif',
+            fontSize: "11px",
+            lineHeight: "16px",
+            fontWeight: "500",
+            letterSpacing: "0.5px",
           },
         },
         body: {

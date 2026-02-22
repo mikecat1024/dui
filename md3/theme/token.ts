@@ -764,6 +764,29 @@ const buttonToken = {
 
 export const button = buttonToken;
 
+// badges
+
+const badgeToken = {
+  color: md.sys.color.error,
+  shape: md.sys.shape.corner.full,
+  size: "6px",
+  large: {
+    color: md.sys.color.error,
+    shape: md.sys.shape.corner.full,
+    size: "16px",
+    labelText: {
+      color: md.sys.color.onError,
+      font: md.sys.typescale.label.small.fontFamily,
+      lineHeight: md.sys.typescale.label.small.lineHeight,
+      size: md.sys.typescale.label.small.fontSize,
+      tracking: md.sys.typescale.label.small.letterSpacing,
+      weight: md.sys.typescale.label.small.fontWeight,
+    },
+  },
+};
+
+export const badge = badgeToken;
+
 // checkbox
 
 const checkboxToken = {
@@ -1015,6 +1038,97 @@ const checkboxToken = {
 };
 
 export const checkbox = checkboxToken;
+
+// radio-buttons
+
+const radioButtonToken = {
+  icon: {
+    size: "20px",
+  },
+  stateLayer: {
+    size: "40px",
+  },
+  selected: {
+    icon: {
+      color: md.sys.color.primary,
+    },
+    hover: {
+      stateLayer: {
+        color: md.sys.color.primary,
+        opacity: md.sys.state.hover.stateLayerOpacity,
+      },
+      icon: {
+        color: md.sys.color.primary,
+      },
+    },
+    focus: {
+      stateLayer: {
+        color: md.sys.color.primary,
+        opacity: md.sys.state.focus.stateLayerOpacity,
+      },
+      icon: {
+        color: md.sys.color.primary,
+      },
+    },
+    pressed: {
+      stateLayer: {
+        color: md.sys.color.onSurface,
+        opacity: md.sys.state.pressed.stateLayerOpacity,
+      },
+      icon: {
+        color: md.sys.color.primary,
+      },
+    },
+  },
+  unselected: {
+    icon: {
+      color: md.sys.color.onSurfaceVariant,
+    },
+    hover: {
+      stateLayer: {
+        color: md.sys.color.onSurface,
+        opacity: md.sys.state.hover.stateLayerOpacity,
+      },
+      icon: {
+        color: md.sys.color.onSurface,
+      },
+    },
+    focus: {
+      stateLayer: {
+        color: md.sys.color.onSurface,
+        opacity: md.sys.state.focus.stateLayerOpacity,
+      },
+      icon: {
+        color: md.sys.color.onSurface,
+      },
+    },
+    pressed: {
+      stateLayer: {
+        color: md.sys.color.primary,
+        opacity: md.sys.state.pressed.stateLayerOpacity,
+      },
+      icon: {
+        color: md.sys.color.onSurface,
+      },
+    },
+  },
+  disabled: {
+    selected: {
+      icon: {
+        color: md.sys.color.onSurface,
+        opacity: "0.38",
+      },
+    },
+    unselected: {
+      icon: {
+        color: md.sys.color.onSurface,
+        opacity: "0.38",
+      },
+    },
+  },
+};
+
+export const radioButton = radioButtonToken;
 
 // chips
 
@@ -3318,6 +3432,258 @@ const switchComponentToken = {
 };
 
 export const switchToken = switchComponentToken;
+
+// tabs
+
+const tabsComponentToken = {
+  primary: {
+    container: {
+      color: md.sys.color.surface,
+      shape: "0",
+      height: "48px",
+      elevation: md.sys.elevation.level0,
+    },
+    withIconAndLabelText: {
+      container: {
+        height: "64px",
+      },
+    },
+    withLabelText: {
+      labelText: {
+        fontFamily: md.sys.typescale.label.large.fontFamily,
+        lineHeight: md.sys.typescale.label.large.lineHeight,
+        fontSize: md.sys.typescale.label.large.fontSize,
+        fontWeight: md.sys.typescale.label.large.fontWeight,
+        letterSpacing: md.sys.typescale.label.large.letterSpacing,
+      },
+      active: {
+        labelText: {
+          color: md.sys.color.primary,
+        },
+        hover: {
+          labelText: {
+            color: md.sys.color.primary,
+          },
+        },
+        focus: {
+          labelText: {
+            color: md.sys.color.primary,
+          },
+        },
+        pressed: {
+          labelText: {
+            color: md.sys.color.primary,
+          },
+        },
+      },
+      inactive: {
+        labelText: {
+          color: md.sys.color.onSurfaceVariant,
+        },
+        hover: {
+          labelText: {
+            color: md.sys.color.onSurface,
+          },
+        },
+        focus: {
+          labelText: {
+            color: md.sys.color.onSurface,
+          },
+        },
+        pressed: {
+          labelText: {
+            color: md.sys.color.onSurface,
+          },
+        },
+      },
+    },
+    withIcon: {
+      icon: {
+        size: "24px",
+      },
+      active: {
+        icon: {
+          color: md.sys.color.primary,
+        },
+        hover: {
+          icon: {
+            color: md.sys.color.primary,
+          },
+        },
+        focus: {
+          icon: {
+            color: md.sys.color.primary,
+          },
+        },
+        pressed: {
+          icon: {
+            color: md.sys.color.primary,
+          },
+        },
+      },
+      inactive: {
+        icon: {
+          color: md.sys.color.onSurfaceVariant,
+        },
+        hover: {
+          icon: {
+            color: md.sys.color.onSurface,
+          },
+        },
+        focus: {
+          icon: {
+            color: md.sys.color.onSurface,
+          },
+        },
+        pressed: {
+          icon: {
+            color: md.sys.color.onSurface,
+          },
+        },
+      },
+    },
+    activeIndicator: {
+      color: md.sys.color.primary,
+      height: "3px",
+      shape: "3px 3px 0 0",
+    },
+    active: {
+      hover: {
+        stateLayer: {
+          color: md.sys.color.primary,
+          opacity: md.sys.state.hover.stateLayerOpacity,
+        },
+      },
+      focus: {
+        stateLayer: {
+          color: md.sys.color.primary,
+          opacity: md.sys.state.focus.stateLayerOpacity,
+        },
+      },
+      pressed: {
+        stateLayer: {
+          color: md.sys.color.primary,
+          opacity: md.sys.state.pressed.stateLayerOpacity,
+        },
+      },
+    },
+    inactive: {
+      hover: {
+        stateLayer: {
+          color: md.sys.color.onSurface,
+          opacity: md.sys.state.hover.stateLayerOpacity,
+        },
+      },
+      focus: {
+        stateLayer: {
+          color: md.sys.color.onSurface,
+          opacity: md.sys.state.focus.stateLayerOpacity,
+        },
+      },
+      pressed: {
+        stateLayer: {
+          color: md.sys.color.primary,
+          opacity: md.sys.state.pressed.stateLayerOpacity,
+        },
+      },
+    },
+    focusIndicator: {
+      color: md.sys.color.secondary,
+      thickness: md.sys.state.focusIndicator.thickness,
+      outlineOffset: "-2px",
+    },
+  },
+  secondary: {
+    container: {
+      color: md.sys.color.surface,
+      shape: "0",
+      height: "48px",
+      elevation: md.sys.elevation.level0,
+      shadowColor: md.sys.color.shadow,
+    },
+    labelText: {
+      fontFamily: md.sys.typescale.label.large.fontFamily,
+      lineHeight: md.sys.typescale.label.large.lineHeight,
+      fontSize: md.sys.typescale.label.large.fontSize,
+      fontWeight: md.sys.typescale.label.large.fontWeight,
+      letterSpacing: md.sys.typescale.label.large.letterSpacing,
+      active: {
+        color: md.sys.color.onSurface,
+      },
+      inactive: {
+        color: md.sys.color.onSurfaceVariant,
+      },
+      hover: {
+        color: md.sys.color.onSurface,
+      },
+      focus: {
+        color: md.sys.color.onSurface,
+      },
+      pressed: {
+        color: md.sys.color.onSurface,
+      },
+    },
+    withIcon: {
+      icon: {
+        size: "24px",
+      },
+      active: {
+        icon: {
+          color: md.sys.color.onSurface,
+        },
+      },
+      inactive: {
+        icon: {
+          color: md.sys.color.onSurfaceVariant,
+        },
+      },
+      hover: {
+        icon: {
+          color: md.sys.color.onSurface,
+        },
+      },
+      focus: {
+        icon: {
+          color: md.sys.color.onSurface,
+        },
+      },
+      pressed: {
+        icon: {
+          color: md.sys.color.onSurface,
+        },
+      },
+    },
+    activeIndicator: {
+      color: md.sys.color.primary,
+      height: "2px",
+    },
+    hover: {
+      stateLayer: {
+        color: md.sys.color.onSurface,
+        opacity: md.sys.state.hover.stateLayerOpacity,
+      },
+    },
+    focus: {
+      stateLayer: {
+        color: md.sys.color.onSurface,
+        opacity: md.sys.state.focus.stateLayerOpacity,
+      },
+    },
+    pressed: {
+      stateLayer: {
+        color: md.sys.color.onSurface,
+        opacity: md.sys.state.pressed.stateLayerOpacity,
+      },
+    },
+    focusIndicator: {
+      color: md.sys.color.secondary,
+      thickness: md.sys.state.focusIndicator.thickness,
+      outlineOffset: "-2px",
+    },
+  },
+};
+
+export const tabsToken = tabsComponentToken;
 
 // text-fields
 
